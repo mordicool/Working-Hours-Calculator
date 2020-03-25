@@ -11,7 +11,7 @@ const logic = require('./logic.js');
  * }
  */
 function calculate(startDate, endDate, options = defaults) {
-    return logic.calculateTimeDiff(startDate, endDate, options);
+	return logic.calculateWorkingDiff(startDate, endDate, options);
 }
 
 module.exports = {calculate};
