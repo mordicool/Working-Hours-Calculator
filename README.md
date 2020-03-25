@@ -1,10 +1,13 @@
 # Working Hours Calculator
 
-npm i working-hours-calculator
+```bash
+$ npm install working-hours-calculator
+```
 
-<code>const workingHourCalculator = require('working-hours-calculator');</code>
+```js
+const workingHourCalculator = require('working-hours-calculator');
 
-<code>workingHourCalculator.calculate(date1, date2, options);</code>
+workingHourCalculator.calculate(date1, date2, options);
 
 /*
  * startDate: Date object
@@ -16,5 +19,6 @@ npm i working-hours-calculator
  * }
  
  */
- 
- Have Fun!
+```
+
+Have Fun!

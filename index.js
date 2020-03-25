@@ -14,4 +14,4 @@ function calculate(startDate, endDate, options = defaults) {
 	return logic.calculateWorkingDiff(startDate, endDate, options);
 }
 
-module.exports = {calculate};
+module.exports = { calculate };
