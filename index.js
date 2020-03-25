@@ -7,7 +7,7 @@ const logic = require('./logic.js');
  * options: {
  *  startHour: Whole Number,
  *  endHour: Whole Number,
- *  workingHours: Array of Numbers {0-6}
+ *  workingDays: Array of Numbers {0-6}
  * }
  */
 function calculate(startDate, endDate, options = defaults) {
