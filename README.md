@@ -1,5 +1,4 @@
-# mordicool-gmail.com
-Working Hours Calculator
+# Working Hours Calculator
 
 npm i working-hours-calculator
 
