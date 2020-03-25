@@ -15,7 +15,7 @@ workingHourCalculator.calculate(date1, date2, options);
  * options: {
    * startHour: Whole Number,
    * endHour: Whole Number,
-   * workingHours: Array of Numbers {0-6}
+   * workingDays: Array of Numbers {0-6}
  * }
  
  */
