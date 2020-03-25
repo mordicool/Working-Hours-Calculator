@@ -1,0 +1,5 @@
+{
+    "startHour": 8,
+    "endHour": 20,
+    "workingDays": [0,1,2,3,4]
+}
