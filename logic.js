@@ -10,34 +10,37 @@ function calculateTimeDiff(startDate, endDate, options) {
     } else if (daysDiff === 0) {
         return utils.simpleDiff(startDate, endDate);
     } else {
-        return multiDaysComplexDiff(startDate, endDate, options);
+        return multiDaysComplexDiff(startDate, endDate, daysDiff, options);
     }
 }
 
 function removePadding(date, options, direction) {
     let returnDate = date;
     const isForward = direction === utils.directions.FORWARD;
-    if (utils.isWorkingDay(date, options.workingDays)) {
+    const isWorkingDay = date => utils.isWorkingDay(date, options.workingDays);
+
+    if (isWorkingDay(date)) {
         let startOfDate = utils.setHour(date, options.startHour);
         let endOfDate = utils.setHour(date, options.endDate);
 
-        if (date <= startOfDate) {
+        if (date < startOfDate) {
             if (isForward) {
                 returnDate = startOfDate;
             } else {
-                endOfDate.setDate(endOfDate.getDate() + 1);
+                endOfDate.setDate(endOfDate.getDate() - 1);
                 returnDate = endOfDate;
             }
-        } else {
+        } else if (date > endOfDate) {
             if (isForward) {
-                startOfDate.setDate(startOfDate.getDate() - 1);
+                startOfDate.setDate(startOfDate.getDate() + 1);
                 returnDate = startOfDate;
             } else {
-                returnDate = endOfDate;                
+                returnDate = endOfDate;
             }
         }
     }
-    if (!utils.isWorkingDay(date, options.workingDays) && !utils.isWorkingDay(returnDate, options.workingDays)) {
+    
+    if (!isWorkingDay(date) || !isWorkingDay(returnDate)) {
         return removeDaysPadding(date, options, direction);
     }
 }
@@ -69,8 +72,16 @@ function calculateFullDaysDiff(startDate, endDate, workingDays) {
     return totalDaysDiff - weeks * (utils.NUMBER_OF_WEEK_DAYS - workingDays.length);
 }
 
-function multiDaysComplexDiff() {
-    return 1; // TODO finish
+function multiDaysComplexDiff(startDate, endDate, daysDiff, options) {
+    const endOfStartDate = utils.setHour(startDate, options.endHour);
+    const firstDayTime = utils.simpleDiff(startDate, endOfStartDate);
+
+    const middleDaysTime = (daysDiff - 1) * utils.getFullDay(options.startHour, options.endHour);
+
+    const startOfEndDate = utils.setHour(startDate, options.endHour);
+    const lastDayTime = utils.simpleDiff(endDate, startOfEndDate);
+
+    return firstDayTime + middleDaysTime + lastDayTime;
 }
 
 module.exports = {calculateTimeDiff};

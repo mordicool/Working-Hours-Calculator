@@ -19,4 +19,12 @@ function isWorkingDay(date, workingDays) {
     return workingDays.includes(date.getDay());
 }
 
-module.exports = {ONE_DAY, NUMBER_OF_WEEK_DAYS, directions, setHour, simpleDiff, isWorkingDay};
+function getFullDay(startHour, endHour) {
+    const tempDate = new Date();
+    const start = setHour(tempDate, startHour);
+    const end = setHour(tempDate, endHour);
+
+    return simpleDiff(start, end);
+}
+
+module.exports = {ONE_DAY, NUMBER_OF_WEEK_DAYS, directions, setHour, simpleDiff, isWorkingDay, getFullDay};
