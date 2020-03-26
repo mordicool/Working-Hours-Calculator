@@ -1,5 +1,7 @@
 # Working Hours Calculator
 
+This is a working hours time calculator. Use it to calculate the work time of your workers.
+
 ```bash
 $ npm install working-hours-calculator
 ```

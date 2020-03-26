@@ -1,14 +1,18 @@
 {
 	"name": "working-hours-calculator",
-	"version": "1.0.2",
-	"description": "",
+	"version": "1.0.3",
+	"description": "Working hours calculator",
 	"main": "index.js",
 	"scripts": {
 		"test": "mocha ./tests",
-		"eslint": "eslint . --fix"
+		"lint": "eslint . --fix"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com/mordicool/Working-Hours-Calculator.git"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "Mordicool inc.",
 	"license": "ISC",
 	"devDependencies": {
 		"chai": "^4.2.0",
